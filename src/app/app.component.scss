@@ -1,0 +1,22 @@
+@import '../variables.scss';
+
+header {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    justify-content: space-between;
+    padding-inline: 1rem;
+
+    .clickable {
+        color: adjust-color($color: $color, $lightness: 50%);
+
+        &:hover:not(.active) {
+            color: $color;
+            cursor: pointer;
+        }
+
+        &.active {
+            color: black
+        }
+    }
+}

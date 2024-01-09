@@ -7,11 +7,13 @@ import { AuthState } from 'src/shared/states/auth/auth.state';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/auth/login/login.component';
+import { SignupComponent } from './components/pages/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     HttpClientModule,
