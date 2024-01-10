@@ -23,13 +23,13 @@ export class AuthState {
     constructor(private readonly authService: AuthService) { }
 
     @Selector()
-    static user({ user }: AuthStateModel): UserModel | null {
-        return user;
+    static user(authState: AuthStateModel): UserModel | null {
+        return authState.user;
     }
 
     @Selector()
-    static token({ token }: AuthStateModel): string | null {
-        return token;
+    static token(authState: AuthStateModel): string | null {
+        return authState.token;
     }
 
     @Action(Signup)

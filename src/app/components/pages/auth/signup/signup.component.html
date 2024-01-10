@@ -1,1 +1,26 @@
-<p>signup works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+    <h1>Signup</h1>
+    <div class="form-field">
+        <label for="firstName">First Name</label>
+        <input autocomplete="given-name" formControlName="firstName" id="firstName" type="text">
+    </div>
+    <div class="form-field">
+        <label for="lastName">Last Name</label>
+        <input autocomplete="family-name" formControlName="lastName" id="lastName" type="text">
+    </div>
+    <div class="form-field">
+        <label for="email">Email</label>
+        <input autocomplete="email" formControlName="email" id="email" type="email">
+    </div>
+    <div class="form-field">
+        <label for="password">Password</label>
+        <input autocomplete="current-password" formControlName="password" id="password" type="password">
+    </div>
+
+    <div>
+        <button routerLink="../login" type="button">To Login</button>
+        <button [disabled]="signupForm.invalid" type="submit">Signup</button>
+    </div>
+</form>
+
+<ng-container *ngIf="isLoading">Is Loading...</ng-container>
