@@ -7,8 +7,8 @@ import { UserModel } from "../../models/user.model";
 import { Login, Logout, Signup } from "./auth.actions";
 
 export interface AuthStateModel {
-    token: string | null;
     user: UserModel | null;
+    token: string | null;
 }
 
 @State<AuthStateModel>({

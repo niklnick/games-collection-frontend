@@ -30,7 +30,7 @@ export class SignupComponent {
     this.isLoading = true;
     this.store.dispatch(new Signup(signup)).subscribe(() => {
       this.isLoading = false;
-      this.router.navigate([]);
+      this.router.navigate(['../user']);
     });
   }
 }

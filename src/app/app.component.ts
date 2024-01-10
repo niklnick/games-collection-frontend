@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
-import { Logout } from 'src/shared/states/auth/auth.actions';
+import { Observable } from 'rxjs';
+import { UserModel } from 'src/shared/models/user.model';
+import { AuthState } from 'src/shared/states/auth/auth.state';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,9 @@ import { Logout } from 'src/shared/states/auth/auth.actions';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Games Collection';
+  readonly user$: Observable<UserModel | null>;
 
-  constructor(
-    private readonly router: Router,
-    private readonly store: Store
-  ) { }
-
-  logout(): void {
-    this.store.dispatch(new Logout()).subscribe(() => this.router.navigate(['auth']));
+  constructor(private readonly store: Store) {
+    this.user$ = this.store.select<UserModel | null>(AuthState.user);
   }
 }

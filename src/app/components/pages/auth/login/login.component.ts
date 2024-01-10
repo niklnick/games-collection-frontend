@@ -28,7 +28,7 @@ export class LoginComponent {
     this.isLoading = true;
     this.store.dispatch(new Login(login)).subscribe(() => {
       this.isLoading = false;
-      this.router.navigate([]);
+      this.router.navigate(['../user']);
     });
   }
 }

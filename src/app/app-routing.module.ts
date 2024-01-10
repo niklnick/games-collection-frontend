@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/pages/auth/login/login.component';
 import { SignupComponent } from './components/pages/auth/signup/signup.component';
+import { GamesComponent } from './components/pages/games/games.component';
+import { UserComponent } from './components/pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,19 @@ const routes: Routes = [
         redirectTo: 'login'
       }
     ]
+  },
+  {
+    path: 'games',
+    component: GamesComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'games'
   }
 ];
 

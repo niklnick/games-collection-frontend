@@ -1,31 +1,41 @@
 <header>
     <div class="title-container">
-        <h1>{{ title }}</h1>
+        <h1>Games Collection</h1>
     </div>
 
     <nav>
-        <div class="tab-container clickable">
+        <div class="tab-container clickable" routerLink="games" routerLinkActive="active">
             <h2>Games</h2>
         </div>
-        <div class="tab-container clickable">
+        <div [class.disabled]="true" class="tab-container clickable">
             <h2>Categories</h2>
         </div>
-        <div class="tab-container clickable">
+        <div [class.disabled]="true" class="tab-container clickable">
             <h2>Group Phases</h2>
         </div>
-        <div class="tab-container clickable">
-            <h2>Users</h2>
-        </div>
+        <ng-container *ngIf="user$ | async">
+            <div [class.disabled]="true" class="tab-container clickable">
+                <h2>Users</h2>
+            </div>
+        </ng-container>
     </nav>
 
     <section>
-        <div class="tab-container clickable" [class.disabled]="true">
+        <div [class.disabled]="true" class="tab-container clickable">
             <span class="material-symbols-rounded bold">search</span>
         </div>
-        <div class="tab-container clickable fill">
-            <h2>Login</h2>
-            <span class="material-symbols-rounded bold">account_circle</span>
-        </div>
+        <ng-container *ngIf="user$ | async as user; else auth">
+            <div class="tab-container clickable fill" routerLink="user" routerLinkActive="active">
+                <h2>{{ user.name.first }}</h2>
+                <span class="material-symbols-rounded bold">account_circle</span>
+            </div>
+        </ng-container>
+        <ng-template #auth>
+            <div class="tab-container clickable fill" routerLink="auth" routerLinkActive="active">
+                <h2>Login</h2>
+                <span class="material-symbols-rounded bold">account_circle</span>
+            </div>
+        </ng-template>
     </section>
 </header>
 
