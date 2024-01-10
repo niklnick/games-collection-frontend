@@ -1,7 +1,32 @@
 <header>
-    <h1>{{ title }}</h1>
+    <div class="title-container">
+        <h1>{{ title }}</h1>
+    </div>
 
-    <h2 class="clickable" routerLink="auth" routerLinkActive="active">Login</h2>
+    <nav>
+        <div class="tab-container clickable">
+            <h2>Games</h2>
+        </div>
+        <div class="tab-container clickable">
+            <h2>Categories</h2>
+        </div>
+        <div class="tab-container clickable">
+            <h2>Group Phases</h2>
+        </div>
+        <div class="tab-container clickable">
+            <h2>Users</h2>
+        </div>
+    </nav>
+
+    <section>
+        <div class="tab-container clickable" [class.disabled]="true">
+            <span class="material-symbols-rounded bold">search</span>
+        </div>
+        <div class="tab-container clickable fill">
+            <h2>Login</h2>
+            <span class="material-symbols-rounded bold">account_circle</span>
+        </div>
+    </section>
 </header>
 
 <main>

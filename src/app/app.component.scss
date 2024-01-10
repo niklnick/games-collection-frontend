@@ -4,19 +4,82 @@ header {
     align-items: center;
     display: flex;
     height: 4rem;
-    justify-content: space-between;
-    padding-inline: 1rem;
 
-    .clickable {
-        color: adjust-color($color: $color, $lightness: 50%);
+    .title-container {
+        margin: 1rem
+    }
 
-        &:hover:not(.active) {
-            color: $color;
-            cursor: pointer;
+    nav {
+        display: flex;
+        flex-grow: 1;
+        gap: 8rem;
+        justify-content: center;
+        margin: .5rem;
+    }
+
+    section {
+        display: flex;
+        gap: 1rem;
+        margin: .5rem;
+    }
+
+    .tab-container {
+        align-items: center;
+        border-radius: 2rem;
+        display: flex;
+        padding: .5rem;
+
+        h2 {
+            margin-inline: .5rem;
         }
 
-        &.active {
-            color: black
+        span {
+            margin-inline: .25rem;
+        }
+
+        &:not(.fill) {
+
+            &:not(.active):not(.disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    background: adjust-color($color: $background, $lightness: -10%);
+                }
+
+                &:active {
+                    background: adjust-color($color: $background, $lightness: -20%);
+                }
+            }
+
+            &.active {
+                background: adjust-color($color: $background, $lightness: -20%);
+            }
+
+            &.disabled {
+                background: adjust-color($color: $background, $lightness: -10%);
+                color: adjust-color($color: $color, $lightness: 50%);
+            }
+        }
+
+        &.fill {
+            background: $color;
+            color: $background;
+
+            &:not(.active):not(.disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    background: adjust-color($color: $color, $lightness: 20%);
+                }
+
+                &:active {
+                    background: adjust-color($color: $color, $lightness: 40%);
+                }
+            }
+
+            &.active {
+                background: adjust-color($color: $color, $lightness: 40%);
+            }
         }
     }
 }
