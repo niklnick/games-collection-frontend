@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/shared/states/auth/auth.guard';
 import { LoginComponent } from './components/pages/auth/login/login.component';
 import { SignupComponent } from './components/pages/auth/signup/signup.component';
 import { GamesComponent } from './components/pages/games/games.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserComponent
+    component: UserComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
